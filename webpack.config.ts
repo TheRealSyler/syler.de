@@ -5,7 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 // const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
 
-type C = Dev & Configuration
+type C = Dev & Configuration;
 
 const config: C = {
   entry: {
@@ -17,13 +17,12 @@ const config: C = {
     filename: '[name].bundle.js',
     publicPath: '/',
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: `${__dirname}/public/index.html`,
     }),
     new ForkTsCheckerWebpackPlugin(),
-    // new WebpackBundleAnalyzer.BundleAnalyzerPlugin()
+    // new WebpackBundleAnalyzer.BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [
@@ -52,7 +51,7 @@ const config: C = {
       react: 'preact/compat',
       'react-dom/test-utils': 'preact/test-utils',
       'react-dom': 'preact/compat',
-    }
+    },
   },
   devServer: {
     historyApiFallback: true,
