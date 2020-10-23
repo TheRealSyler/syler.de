@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "author": "syler <hileo77@gmail.com>",
   "license": "MIT",
-  "description": "Bare bones typescript + webpack template",
   "scripts": {
-    "start": "webpack serve",
+    "start": "snowpack dev",
     "build": "del ./dist && webpack --mode production"
   },
   "dependencies": {
@@ -34,5 +33,13 @@
     "webpack-bundle-analyzer": "^3.9.0",
     "webpack-cli": "^4.0.0",
     "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "@prefresh/snowpack": "^2.1.0",
+    "@snowpack/app-scripts-preact": "^1.9.5",
+    "@snowpack/plugin-dotenv": "^2.0.4",
+    "@snowpack/plugin-sass": "^1.1.1",
+    "@snowpack/plugin-typescript": "^1.0.2",
+    "snowpack": "^2.15.1"
   }
 }
