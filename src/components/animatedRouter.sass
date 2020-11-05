@@ -1,0 +1,100 @@
+
+.a-router-in
+  &-fade
+    animation: in-fade 500ms forwards
+  &-bot
+    animation: in-bot 200ms forwards
+  &-top
+    animation: in-top 200ms forwards
+  &-left
+    animation: in-left 200ms forwards
+  &-right
+    animation: in-right 200ms forwards
+
+@keyframes in-fade
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes in-bot
+  0%
+    opacity: 0
+    transform: translateY(100vh)
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes in-top
+  0%
+    opacity: 0
+    transform: translateY(-100vh)
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes in-left
+  0%
+    opacity: 0
+    transform: translateX(-100vh)
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+@keyframes in-right
+  0%
+    opacity: 0
+    transform: translateX(100vh)
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+.a-router-out
+  &-fade
+    animation: out-fade 500ms forwards
+  &-bot
+    animation: out-bot 200ms forwards
+  &-top
+    animation: out-top 200ms forwards
+  &-left
+    animation: out-left 200ms forwards
+  &-right
+    animation: out-right 200ms forwards
+
+@keyframes out-fade
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+@keyframes out-bot
+  0%
+    opacity: 1
+    transform: translateY(0)
+  100%
+    opacity: 0
+    transform: translateY(-100vh)
+
+@keyframes out-top
+  0%
+    opacity: 1
+    transform: translateY(0)
+  100%
+    opacity: 0
+    transform: translateY(100vh)
+
+@keyframes out-left
+  0%
+    opacity: 1
+    transform: translateX(0)
+  100%
+    opacity: 0
+    transform: translateX(100vh)
+
+@keyframes out-right
+  0%
+    opacity: 1
+    transform: translateX(0)
+  100%
+    opacity: 0
+    transform: translateX(-100vh)

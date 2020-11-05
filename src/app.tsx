@@ -1,58 +1,34 @@
-import { h, FunctionComponent, JSX, ComponentChildren, Fragment } from 'preact';
-import Router, { Route } from 'preact-router';
-import { useState } from 'preact/hooks';
+import { h, FunctionComponent, Fragment } from 'preact';
+
 import AsyncRoute from './components/asyncRoute';
 import Redirect from './components/redirect';
-import MainLayout from './layouts/main';
-
-const routes = [
-  <AsyncRoute
-    path="/home"
-    component={() => import(/*webpackChunkName: "HomeView"*/ './views/home')}
-  />,
-  <AsyncRoute
-    path="/home2"
-    component={() => import(/*webpackChunkName: "HomeView"*/ './views/home')}
-  />,
-].map((route) => wrapRoute(route));
-
-function wrapRoute(route: h.JSX.Element): h.JSX.Element {
-  return (
-    <div path={route.props.path} class="in page" key={route.props.path}>
-      {route}
-    </div>
-  );
-}
+import AnimatedRouter from './components/animatedRouter';
+import Home from './views/home';
 
 const App: FunctionComponent = () => {
-  const [previousEl, setPreviousEl] = useState<ComponentChildren | null>(null);
-  const [outEl, setOutEl] = useState<JSX.Element | null>(null);
-
   return (
     <Fragment>
-      <div style="background: #333; padding: 4rem;">NAV</div>
-      <div style="position: relative">
-        <Router
-          onChange={(e) => {
-            if (previousEl) {
-              setOutEl(
-                <div class="out page" key={e.previous} onAnimationEnd={() => setOutEl(null)}>
-                  {previousEl}
-                </div>
-              );
-            }
-            if (e.current) {
-              setPreviousEl(e.current.props.children);
-            }
-          }}
+      <div style="padding: 0.5rem 2rem; background: #292a2c">
+        NAV <a href="/home">home</a> <a href="/home2">home2</a>
+      </div>
+      <div style="overflow-x: hidden; padding: 2rem">
+        <AnimatedRouter
+          routes={[
+            <AsyncRoute
+              path="/home"
+              component={() => import(/*webpackChunkName: "HomeView"*/ './views/home')}
+            />,
+            <AsyncRoute
+              path="/home2"
+              component={() => import(/*webpackChunkName: "HomeView2"*/ './views/home2')}
+            />,
+          ]}
         >
-          {routes}
           <Redirect to="/home" path="/"></Redirect>
-          <div path="*" default>
-            ERROR TODO <a href="/home">home</a>
+          <div default>
+            Error <a href="/home">home</a>
           </div>
-        </Router>
-        {outEl}
+        </AnimatedRouter>
       </div>
     </Fragment>
   );

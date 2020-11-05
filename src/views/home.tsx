@@ -1,16 +1,9 @@
 import { h, FunctionComponent } from 'preact';
-
+import a from './a';
+import b from './b';
 const Home: FunctionComponent = () => {
-  return (
-    <div>
-      <a href="/error">error</a>
-      <br />
-      <a href="/home">home</a>
-      <br />
-
-      <a href="/home2">home 2 </a>
-    </div>
-  );
+  console.log(b);
+  return <div>TEST test</div>;
 };
 
 export default Home;
