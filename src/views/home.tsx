@@ -1,9 +1,7 @@
 import { h, FunctionComponent } from 'preact';
-import a from './a';
-import b from './b';
+
 const Home: FunctionComponent = () => {
-  console.log(b);
-  return <div>TEST test</div>;
+  return <div>I Am The Most Realist Syler </div>;
 };
 
 export default Home;

@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
 const Home2: FunctionComponent = () => {
-  return <div>TEST awd2</div>;
+  return <div>Wow Another page</div>;
 };
 
 export default Home2;
