@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "snowpack dev",
-    "build": "del ./dist && webpack --mode production"
+    "build": "del-cli ./dist && webpack --mode production"
   },
   "dependencies": {
     "@babel/cli": "^7.12.1",
