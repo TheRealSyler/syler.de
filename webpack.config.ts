@@ -1,10 +1,11 @@
 import { Configuration } from 'webpack';
+import { Configuration as Conf } from 'webpack-dev-server';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 // const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
 
-type C = Configuration;
+type C = Configuration & Conf;
 
 const config: C = {
   entry: {
@@ -52,11 +53,10 @@ const config: C = {
       'react-dom': 'preact/compat',
     },
   },
-  // devServer: {
-  //   historyApiFallback: true,
-  //   allowedHosts: ['localhost'],
-  //   publicPath: '/',
-  // },
+  devServer: {
+    historyApiFallback: true,
+    allowedHosts: ['localhost'],
+  },
   optimization: {
     usedExports: true,
     splitChunks: {
