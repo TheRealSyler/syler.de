@@ -3,6 +3,7 @@ import { Configuration as Conf } from 'webpack-dev-server';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 // const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
 
 type C = Configuration & Conf;
@@ -18,8 +19,12 @@ const config: C = {
     publicPath: '/',
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [{ from: './public/_redirects', to: '.' }],
+    }),
     new HtmlWebpackPlugin({
       template: `${__dirname}/public/index.html`,
+      favicon: `${__dirname}/public/favicon.ico`
     }),
     new ForkTsCheckerWebpackPlugin(),
     // new WebpackBundleAnalyzer.BundleAnalyzerPlugin(),
