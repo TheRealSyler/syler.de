@@ -3,10 +3,12 @@ import Router from 'preact-router';
 import { useState } from 'preact/hooks';
 import './animatedRouter.sass';
 
+export type PageTransitionAnimation = 'bot' | 'top' | 'left' | 'right' | 'fade';
+
 interface AnimatedRouterProps {
   layout?: FunctionComponent;
   routes: h.JSX.Element[];
-  animation?: 'bot' | 'top' | 'left' | 'right' | 'fade';
+  animation?: PageTransitionAnimation;
 }
 
 function wrapRoute(
@@ -26,7 +28,7 @@ const AnimatedRouter: FunctionComponent<AnimatedRouterProps> = (props) => {
   const [outEl, setOutEl] = useState<h.JSX.Element | null>(null);
 
   const page = (
-    <div style="position: relative">
+    <div style="position: relative; overflow: hidden">
       <Router
         onChange={(e) => {
           if (previousEl) {
