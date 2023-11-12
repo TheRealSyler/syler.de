@@ -1,9 +1,8 @@
-import { h, FunctionComponent, Fragment } from 'preact';
-
-import AsyncRoute from './components/asyncRoute';
-import Redirect from './components/redirect';
-import AnimatedRouter from './components/animatedRouter';
-import logo from '../public/logo.jpg'
+import { Fragment, type FunctionComponent } from 'preact'
+import logo from './assets/logo.jpg'
+import AnimatedRouter from './components/animatedRouter'
+import AsyncRoute from './components/asyncRoute'
+import Redirect from './components/redirect'
 
 const App: FunctionComponent = () => (
   <Fragment>
@@ -18,11 +17,11 @@ const App: FunctionComponent = () => (
         routes={[
           <AsyncRoute
             path="/home"
-            component={() => import(/*webpackChunkName: "HomeView"*/ './views/home')}
+            component={() => import('./views/home')}
           />,
           <AsyncRoute
             path="/home2"
-            component={() => import(/*webpackChunkName: "HomeView2"*/ './views/home2')}
+            component={() => import('./views/home2')}
           />,
         ]}
       >
@@ -34,4 +33,4 @@ const App: FunctionComponent = () => (
     </div>
   </Fragment>
 )
-export default App;
+export default App

@@ -1,6 +1,5 @@
-import './index.sass';
+import { render } from 'preact'
+import App from './app'
+import './index.sass'
 
-import { h, render } from 'preact';
-import App from './app';
-
-render(<App />, document.body);
+render(<App />, document.getElementById("app")!)

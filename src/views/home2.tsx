@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact';
+import type { FunctionComponent } from 'preact'
 
 const Home2: FunctionComponent = () => {
   return <div>
@@ -14,7 +14,7 @@ const Home2: FunctionComponent = () => {
       <span style="padding: 2rem; border-radius: 10px; background-color: var(--primary-color-10)">--primary-color-10</span>
 
     </div>
-  </div>;
-};
+  </div>
+}
 
-export default Home2;
+export default Home2

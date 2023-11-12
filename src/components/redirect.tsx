@@ -1,14 +1,14 @@
-import { FunctionComponent } from 'preact';
-import { route } from 'preact-router';
+import type { FunctionComponent } from 'preact'
+import { route } from 'preact-router'
 
-interface RedirectProps {
-  to: string;
+type RedirectProps = {
+  to: string
 }
 
 const Redirect: FunctionComponent<RedirectProps> = (props) => {
-  const { to } = props;
-  route(to, true);
-  return null;
-};
+  const { to } = props
+  route(to, true)
+  return null
+}
 
-export default Redirect;
+export default Redirect
